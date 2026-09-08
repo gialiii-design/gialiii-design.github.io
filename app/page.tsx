@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import {projects} from './projects';
 import {Header, Footer} from './shared';
 
@@ -30,11 +29,11 @@ export default function Home() {
       <section id="work" className="wrap">
         <div className="section-label"><h2>精选作品 <span>Selected work</span></h2><span>01 — 03 / + EXPLORATION</span></div>
         <div className="project-grid">{projects.map(p =>
-          <Link className={`project-card ${p.slug}`} key={p.slug} href={`/work/${p.slug}`}>
+          <a className={`project-card ${p.slug}`} key={p.slug} href={`/work/${p.slug}`}>
             <div className="project-image"><img src={`/projects/${p.slug}-0.webp`} alt={p.title + '项目展示'} width="1920" height="1080" loading="lazy"/><span aria-hidden="true">↗</span></div>
             <div className="project-meta"><span>{p.number}</span><span>{p.category}</span></div>
             <h3>{p.title}</h3><p>{p.subtitle}</p>
-          </Link>
+          </a>
         )}</div>
       </section>
       <section id="contact" className="contact-section">
