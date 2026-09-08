@@ -13,4 +13,6 @@
 @media(max-width:900px){.process-four{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.about-portrait{max-width:270px;margin-top:20px;margin-bottom:14px}.case-chapters{gap:44px}.case-toc{gap:14px 20px}.case-toc>span{flex-basis:100%}.case-actions{gap:12px 24px}}
 @media(max-width:480px){.process-four{grid-template-columns:1fr}}
+.about-portrait{object-position:32% 50%}.about-section{align-items:end}
+@media(max-width:760px){.about-section{align-items:start}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}

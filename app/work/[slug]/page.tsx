@@ -29,6 +29,7 @@ export default async function Project({params}: {params: Promise<{slug: string}>
         </div>
       </section>
       <div className="case-cover"><img src={`/projects/${p.slug}-0.webp`} alt={p.title + '项目展示'} width="1920" height="1080"/></div>
+      <section className="case-info"><div><div className="eyebrow">PROJECT OVERVIEW</div><p className="case-focus">{p.focus}</p></div><div><h2>从问题出发</h2><p>{p.challenge}</p><h2>设计方向</h2><p>{p.approach}</p></div></section>
       {sections ? <>
         {slug === 'lv' && <section className="process process-four" aria-label="评估框架">{steps.map(([title, body], i) => <div key={title}><span>0{i + 1}</span><h3>{title}</h3><p>{body}</p></div>)}</section>}
         <nav className="case-toc" aria-label="项目内容目录"><span>项目内容</span>{sections.map(s => <a href={`#${s.id}`} key={s.id}>{s.title} ↓</a>)}</nav>
@@ -40,7 +41,6 @@ export default async function Project({params}: {params: Promise<{slug: string}>
           </figure>)}</div>
         </section>)}</div>
       </> : <>
-        <section className="case-info"><div><div className="eyebrow">PROJECT OVERVIEW</div><p className="case-focus">{p.focus}</p></div><div><h2>从问题出发</h2><p>{p.challenge}</p><h2>设计方向</h2><p>{p.approach}</p></div></section>
         <section className="process" aria-label="设计思路">{steps.map(([title, body], i) => <div key={title}><span>0{i + 1}</span><h3>{title}</h3><p>{body}</p></div>)}</section>
       </>}
       <p className="case-note">{p.note}</p>
