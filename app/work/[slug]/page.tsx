@@ -1,6 +1,6 @@
 import {notFound} from 'next/navigation';
 import {projects} from '../../projects';
-import {chapters, lvSteps, prototypeUrl} from '../../case-content';
+import {chapters, prototypeUrl} from '../../case-content';
 import {Header, Footer} from '../../shared';
 
 export async function generateMetadata({params}: {params: Promise<{slug: string}>}) {
@@ -15,7 +15,7 @@ export default async function Project({params}: {params: Promise<{slug: string}>
   if (index < 0) notFound();
   const p = projects[index], next = projects[(index + 1) % projects.length];
   const sections = chapters[slug];
-  const steps = slug === 'lv' ? lvSteps : p.steps;
+  const steps = p.steps;
   return <>
     <Header/>
     <main id="main" className="wrap">
@@ -29,9 +29,8 @@ export default async function Project({params}: {params: Promise<{slug: string}>
         </div>
       </section>
       <div className="case-cover"><img src={`/projects/${p.slug}-0.webp`} alt={p.title + '项目展示'} width="1920" height="1080"/></div>
-      <section className="case-info"><div><div className="eyebrow">PROJECT OVERVIEW</div><p className="case-focus">{p.focus}</p></div><div><h2>从问题出发</h2><p>{p.challenge}</p><h2>设计方向</h2><p>{p.approach}</p></div></section>
+      <section className="case-info"><div className="eyebrow overview-label">PROJECT OVERVIEW</div><p className="case-focus">{p.focus}</p><div><h2>从问题出发</h2><p>{p.challenge}</p><h2>设计方向</h2><p>{p.approach}</p></div></section>
       {sections ? <>
-        {slug === 'lv' && <section className="process process-four" aria-label="评估框架">{steps.map(([title, body], i) => <div key={title}><span>0{i + 1}</span><h3>{title}</h3><p>{body}</p></div>)}</section>}
         <nav className="case-toc" aria-label="项目内容目录"><span>项目内容</span>{sections.map(s => <a href={`#${s.id}`} key={s.id}>{s.title} ↓</a>)}</nav>
         <div className="case-chapters">{sections.map((s, i) => <section id={s.id} className="case-chapter" key={s.id}>
           <div className="chapter-heading"><span>0{i + 1}</span><h2>{s.title}</h2></div>

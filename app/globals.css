@@ -15,4 +15,6 @@
 @media(max-width:480px){.process-four{grid-template-columns:1fr}}
 .about-portrait{object-position:32% 50%}.about-section{align-items:end}
 @media(max-width:760px){.about-section{align-items:start}}
+.about-section p,.case-info p{ text-wrap:pretty }.keep-together{white-space:nowrap}.case-info{row-gap:24px;align-items:baseline}.overview-label{grid-column:1/-1}.case-info>.case-focus{margin:0;padding:0;border:0}
+@media(max-width:760px){.case-info{row-gap:20px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}

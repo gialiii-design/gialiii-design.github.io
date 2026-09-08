@@ -18,9 +18,9 @@ export default function Home() {
       <section id="about" className="about-section wrap">
         <div className="about-heading"><div className="eyebrow">ABOUT</div><h2>关于我</h2><img className="about-portrait" src="/gia-portrait.jpg" alt="李佳玲 Gia Li" width="2856" height="1904" loading="lazy"/></div>
         <div>
-          <p>我是一名拥有产品设计背景的 UX / UI 设计师，毕业于拉夫堡大学用户体验与服务设计专业。</p>
-          <p>我关注用户真实需求、商业目标与产品可行性之间的关系，擅长通过用户研究、可用性测试和信息架构梳理发现问题，并将研究洞察转化为清晰、可落地的产品策略与界面体验。</p>
-          <p>从服务设计、无障碍体验到 B 端复杂系统，我希望设计不只是呈现结果，也能解释问题为什么发生，以及方案如何被验证。</p>
+          <p>我是一名拥有产品设计背景的 UX / UI 设计师，毕业于拉夫堡大学用户体验与服务<span className="keep-together">设计专业。</span></p>
+          <p>我关注用户真实需求、商业目标与产品可行性之间的关系，擅长通过用户研究、可用性测试和信息架构梳理发现问题，并将研究洞察转化为清晰、可落地的产品策略与<span className="keep-together">界面体验。</span></p>
+          <p>从服务设计、无障碍体验到 B 端复杂系统，我希望设计不只是呈现结果，也能解释问题为什么发生，以及方案<span className="keep-together">如何被验证。</span></p>
           <h3 className="skills-heading">核心能力</h3>
           <div className="skills">{skills.map(skill => <span key={skill}>{skill}</span>)}</div>
           <a className="text-link resume-link" href="/resume-gia-li.pdf" target="_blank" rel="noopener noreferrer" aria-label="查看完整简历 PDF，在新标签页打开">查看完整简历 ↗</a>
