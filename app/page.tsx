@@ -1,7 +1,7 @@
 import {projects} from './projects';
 import {Header, Footer} from './shared';
 
-const skills = ['用户研究', '产品策略', '信息架构', '交互设计', 'UI 设计', '可用性测试', '服务设计', '无障碍设计'];
+const skills = ['用户研究', '产品策略', '信息架构', '交互设计', 'UI 设计', '可用性测试', '服务设计'];
 
 export default function Home() {
   return <>
@@ -16,7 +16,7 @@ export default function Home() {
         </div>
       </section>
       <section id="about" className="about-section wrap">
-        <div className="about-heading"><div className="eyebrow">ABOUT</div><h2>关于我</h2></div>
+        <div className="about-heading"><div className="eyebrow">ABOUT</div><h2>关于我</h2><img className="about-portrait" src="/gia-portrait.jpg" alt="李佳玲 Gia Li" width="2856" height="1904" loading="lazy"/></div>
         <div>
           <p>我是一名拥有产品设计背景的 UX / UI 设计师，毕业于拉夫堡大学用户体验与服务设计专业。</p>
           <p>我关注用户真实需求、商业目标与产品可行性之间的关系，擅长通过用户研究、可用性测试和信息架构梳理发现问题，并将研究洞察转化为清晰、可落地的产品策略与界面体验。</p>
