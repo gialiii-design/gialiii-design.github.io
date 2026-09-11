@@ -9,6 +9,7 @@ export const evidenceLinks: Record<string, {label: string; href: string}[]> = {
     {label: '查看服务设计过程', href: 'https://miro.com/app/board/uXjVIRzLGYQ=/?share_link_id=937717218812'},
   ],
   insurance: [
+    {label: '查看完整脱敏方案', href: '/projects/insurance-anonymized-case-study.pdf'},
     {label: '查看设计过程', href: 'https://www.figma.com/design/UMxuI1QCK0h4DWXVV7GmS1/%E4%BF%9D%E9%99%A9%E9%94%80%E5%94%AE%E7%B3%BB%E7%BB%9F?node-id=9-8&t=q4cXAjFNVtphFAkH-1'},
   ],
   aigc: [
