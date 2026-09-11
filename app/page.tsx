@@ -54,5 +54,6 @@ export default function Home() {
 function projectCover(slug: string) {
   if (slug === 'careshare') return '/projects/careshare-0.jpg';
   if (slug === 'upup') return '/projects/upup-0.png';
+  if (slug === 'insurance') return '/projects/insurance-0.jpg';
   return `/projects/${slug}-0.webp`;
 }

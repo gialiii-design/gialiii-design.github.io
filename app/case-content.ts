@@ -8,15 +8,15 @@ export const evidenceLinks: Record<string, {label: string; href: string}[]> = {
   careshare: [
     {label: '查看服务设计过程', href: 'https://miro.com/app/board/uXjVIRzLGYQ=/?share_link_id=937717218812'},
   ],
-  insurance: [
-    {label: '查看完整脱敏方案', href: '/projects/insurance-anonymized-case-study.pdf'},
-    {label: '查看设计过程', href: 'https://www.figma.com/design/UMxuI1QCK0h4DWXVV7GmS1/%E4%BF%9D%E9%99%A9%E9%94%80%E5%94%AE%E7%B3%BB%E7%BB%9F?node-id=9-8&t=q4cXAjFNVtphFAkH-1'},
-  ],
   aigc: [
     {label: '查看 AIGC 探索过程', href: 'https://www.figma.com/design/UMxuI1QCK0h4DWXVV7GmS1/%E4%BF%9D%E9%99%A9%E9%94%80%E5%94%AE%E7%B3%BB%E7%BB%9F?node-id=1376-18554&t=q4cXAjFNVtphFAkH-1'},
   ],
   lv: [
     {label: '查看可用性评估报告', href: '/projects/lv-usability-evaluation-presentation.pdf'},
+  ],
+  insurance: [
+    {label: '查看完整项目方案（脱敏版）', href: '/projects/insurance-anonymized-case-study.pdf'},
+    {label: '查看设计过程', href: 'https://www.figma.com/design/UMxuI1QCK0h4DWXVV7GmS1/%E4%BF%9D%E9%99%A9%E9%94%80%E5%94%AE%E7%B3%BB%E7%BB%9F?node-id=9-8&t=q4cXAjFNVtphFAkH-1'},
   ],
 };
 
@@ -32,6 +32,12 @@ export const chapters: Record<string, Chapter[]> = {
     {id: 'exploration', title: '更连贯的商品探索体验', pages: [[5, '商品探索体验概览'], [6, '统一筛选系统'], [7, '强化导航反馈'], [8, '支持商品回溯'], [9, '前置库存状态反馈']]},
     {id: 'decision', title: '让关键信息更接近决策', pages: [[10, '购买决策支持概览'], [11, '提升关键信息可见性'], [12, '补充决策依据']]},
     {id: 'understanding', title: '让品牌表达更容易理解', pages: [[13, '品牌表达优化概览'], [14, '提升信息可读性'], [15, '降低术语理解门槛'], [16, '图文协同表达']]},
+  ],
+  insurance: [
+    {id: 'background', title: '业务背景与核心问题', pages: [[2, '方案报价、投保录入与审批出单中的效率问题']]},
+    {id: 'strategy', title: '设计目标与策略', pages: [[4, '让报价更高效、录入更轻量、审批更少返工']]},
+    {id: 'quote', title: '方案报价与规则推荐', pages: [[5, '将方案选择、费用确认与沟通前置'], [9, '通过企业特征与保障需求进行规则化推荐']]},
+    {id: 'entry', title: '投保录入与提交前核对', pages: [[11, '以模块化信息结构支持清晰录入与实时校验']]},
   ],
   aigc: [
     {id: 'direction', title: '业务背景与设计流程', pages: [[2, '业务背景与视觉方向'], [4, '从设计拆解到视觉落地']]},

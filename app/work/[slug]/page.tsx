@@ -51,6 +51,6 @@ export default async function Project({params}: {params: Promise<{slug: string}>
 
 function projectAsset(slug: string, page?: number) {
   const suffix = page === undefined ? '0' : `page-${String(page).padStart(2, '0')}`;
-  const extension = slug === 'careshare' ? 'jpg' : slug === 'upup' ? 'png' : 'webp';
+  const extension = slug === 'careshare' || slug === 'insurance' ? 'jpg' : slug === 'upup' ? 'png' : 'webp';
   return `/projects/${slug}-${suffix}.${extension}`;
 }
