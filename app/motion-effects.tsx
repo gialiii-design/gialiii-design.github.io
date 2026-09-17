@@ -1,30 +1,46 @@
 'use client';
 
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 
 export function MotionEffects() {
   useEffect(() => {
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reduced = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches;
+    const precisePointer = window.matchMedia(
+      '(hover: hover) and (pointer: fine)',
+    ).matches;
     document.body.classList.add('motion-ready');
 
-    const revealItems = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
+    const revealItems = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-reveal]'),
+    );
     if (reduced || !('IntersectionObserver' in window)) {
-      revealItems.forEach(item => item.classList.add('is-visible'));
+      revealItems.forEach((item) => item.classList.add('is-visible'));
       return () => document.body.classList.remove('motion-ready');
     }
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        (entry.target as HTMLElement).classList.add('is-visible');
-        observer.unobserve(entry.target);
-      });
-    }, {threshold: 0.12, rootMargin: '0px 0px -6%'});
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          (entry.target as HTMLElement).classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -6%' },
+    );
 
-    revealItems.forEach(item => observer.observe(item));
+    revealItems.forEach((item) => observer.observe(item));
 
-    const interactiveCards = Array.from(document.querySelectorAll<HTMLElement>('.project-card, .visual-work-card'));
-    const cleanups = interactiveCards.map(card => {
+    const interactiveCards = precisePointer
+      ? Array.from(
+          document.querySelectorAll<HTMLElement>(
+            '.project-card, .visual-work-card',
+          ),
+        )
+      : [];
+    const cleanups = interactiveCards.map((card) => {
       const onMove = (event: PointerEvent) => {
         const rect = card.getBoundingClientRect();
         const x = (event.clientX - rect.left) / rect.width;
@@ -46,8 +62,10 @@ export function MotionEffects() {
       };
     });
 
-    const magneticItems = Array.from(document.querySelectorAll<HTMLElement>('.magnetic'));
-    const magneticCleanups = magneticItems.map(item => {
+    const magneticItems = precisePointer
+      ? Array.from(document.querySelectorAll<HTMLElement>('.magnetic'))
+      : [];
+    const magneticCleanups = magneticItems.map((item) => {
       const onMove = (event: PointerEvent) => {
         const rect = item.getBoundingClientRect();
         const x = event.clientX - rect.left - rect.width / 2;
@@ -69,8 +87,8 @@ export function MotionEffects() {
 
     return () => {
       observer.disconnect();
-      cleanups.forEach(cleanup => cleanup());
-      magneticCleanups.forEach(cleanup => cleanup());
+      cleanups.forEach((cleanup) => cleanup());
+      magneticCleanups.forEach((cleanup) => cleanup());
       document.body.classList.remove('motion-ready');
     };
   }, []);
